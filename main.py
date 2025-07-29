@@ -1,5 +1,6 @@
 
-imfrom force_join import enforce_channel_joinport os
+imfrom force_join import enforce_channel_joinport 
+import os
 import re
 import sys
 import time
