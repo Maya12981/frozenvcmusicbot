@@ -1,5 +1,4 @@
-
-imfrom force_join import enforce_channel_joinport 
+from force_join import enforce_channel_join
 import os
 import re
 import sys
