@@ -565,11 +565,12 @@ async def help_util_callback(_, callback_query):
     await callback_query.message.edit_text(text, parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(buttons))
 
 
-@bot.on_message(filters.group & filters.regex(r'^/play(?:@\w+)?(?:\s+(?P<query>.+))?$'))
-async def play_handler(_, message: Message):
-        if not await enforce_channel_join(bot, message):
+@bot.on_message(filters.command("play"))
+async def play_handler(bot, message):
+    if not await enforce_channel_join(bot, message):
         return
     chat_id = message.chat.id
+    # ...rest of your code...
 
     # If replying to an audio/video message, handle local playback
     if message.reply_to_message and (message.reply_to_message.audio or message.reply_to_message.video):
